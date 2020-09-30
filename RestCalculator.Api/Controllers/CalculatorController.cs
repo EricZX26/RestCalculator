@@ -12,6 +12,7 @@ namespace RestCalculator.Api.Controllers
     {
 
         [HttpGet]
+        [ResponseCache(Duration = 120, VaryByQueryKeys = new[] { "num1", "num2" })]
         public async Task<double> Add([FromQuery] double num1, [FromQuery] double num2)
         {
             BinaryOperations.Query query = new BinaryOperations.Query()
@@ -24,6 +25,7 @@ namespace RestCalculator.Api.Controllers
             return await Mediator.Send(query);
         }
         [HttpGet]
+        [ResponseCache(Duration = 120, VaryByQueryKeys = new[] { "num1", "num2" })]
         public async Task<double> Sub([FromQuery] double num1, [FromQuery] double num2)
         {
             BinaryOperations.Query query = new BinaryOperations.Query()
@@ -37,6 +39,7 @@ namespace RestCalculator.Api.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 120, VaryByQueryKeys = new[] { "num1", "num2" })]
         public async Task<double> Multiply([FromQuery] double num1, [FromQuery] double num2)
         {
             BinaryOperations.Query query = new BinaryOperations.Query()
@@ -50,6 +53,7 @@ namespace RestCalculator.Api.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 120, VaryByQueryKeys = new[] { "num1", "num2" })]
         public async Task<double> Divide([FromQuery] double num1, [FromQuery] double num2)
         {
             BinaryOperations.Query query = new BinaryOperations.Query()

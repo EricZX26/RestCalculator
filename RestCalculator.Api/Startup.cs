@@ -31,6 +31,7 @@ namespace RestCalculator.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddResponseCaching();
             services.AddApiVersioning(config =>
             {
                 config.DefaultApiVersion = new ApiVersion(1, 0);
@@ -59,7 +60,7 @@ namespace RestCalculator.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseResponseCaching();
             app.UseAuthorization();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
