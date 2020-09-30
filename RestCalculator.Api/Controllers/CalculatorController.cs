@@ -36,5 +36,18 @@ namespace RestCalculator.Api.Controllers
             return await Mediator.Send(query);
         }
 
+        [HttpGet]
+        public async Task<double> Multiply([FromQuery] double num1, [FromQuery] double num2)
+        {
+            BinaryOperations.Query query = new BinaryOperations.Query()
+            {
+                Num1 = num1,
+                Num2 = num2,
+                factory = new MultiplyOperationFactory()
+            };
+
+            return await Mediator.Send(query);
+        }
+
     }
 }
